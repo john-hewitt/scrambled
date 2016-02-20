@@ -207,6 +207,7 @@
           (VP (VBD said))))
      (ADJP (JJ untrue))
      (. ?)) )
+     
 ((SBARQ
    (WHADVP (WRB When))
    (SQ (VBD was)
@@ -408,6 +409,7 @@
               (NP (CD two) (NNS points)))))
         (VP (VBN called))))
     (. ?)))
+    
 ( (SQ (VBZ Is)
     (NP-SBJ (DT the) (NN diplomat))
     (PP-PRD (IN in)
@@ -476,6 +478,7 @@
       (PP (IN during)
         (NP (DT the) (NN war))))
     (. ?)) )
+
 ( (S 
     (NP-SBJ (DT The) (NN dog))
     (VP (VBD bit)
@@ -512,6 +515,7 @@
       (NP (NNS wolves))
       (ADVP (RB here)))
     (. .)))
+
 ( (S
     (PP (IN In)
       (NP (DT the) (NNS 60s)))
@@ -746,6 +750,7 @@
         (VBD rocked)
         (NP (NNP Najaf)))
     (. .)))
+
 ( (S
     (NP-SBJ (NNP Bill))
     (VP (VBZ drinks)
@@ -761,8 +766,6 @@
      (VP (VBP rise)
        (PP (IN in)
          (NP (JJS most) (NNP US) (NNS states)))))))
-
-
 
 ( (S
     (NP-SBJ (`` `) (JJ Toxic) (NN ship) ('' '))
@@ -783,8 +786,6 @@
         (NP (NNP NYC))))
     (. .)))
 
-
-
 ( (S
     (NP-SBJ (PRP I))
     (VP (VBP 'M)
@@ -795,6 +796,7 @@
     (NP (NNP UnitedHealth) (, ,) (NNP Mattel))
     (VP (VBP rise))
     (. .) ))
+
 ( (S
     (NP (NNP Fujitsu) (, ,) (NNP Toshiba) (, ,) (NNP Hitachi))
     (VP (MD may)
@@ -803,6 +805,7 @@
         (PP (IN from)
           (NP (NNP Sony)))))
     (. .) ))
+
 ( (S
     (NP (NNP Walt) (NNP Disney))
     (VP (VBZ cuts)
@@ -813,6 +816,7 @@
           (, ,)
           (NP (NNS calories)))))
     (. .) ))
+
 ( (S
     (NP
       (NP (NN Collision))
@@ -828,6 +832,7 @@
       (VP (VBZ injures)
         (NP (CD 60))))
     (. .) ))
+
 ( (S
     (NP (NNP Japan))
     (VP
@@ -839,6 +844,7 @@
       (VP (VBZ eyes)
         (NP (JJ further) (NN sanction))))
     (. .) ))
+
 ( (S
     (S
       (NP (CD Two) (NN metro)
@@ -851,6 +857,7 @@
       (NP (NNS dozens))
       (VP (VBN hurt)))
     (. .) ))
+
 ( (S
     (S
       (NP (NNP Jobs))
@@ -862,6 +869,7 @@
       (VP (VBZ opens)
         (NP (NNS pre-orders))))
     (. .) ))
+
 ( (S
     (S
       (NP-SBJ (NNP US) (NN stock) (NNS futures))
@@ -874,6 +882,7 @@
         (PP (IN in)
           (NP (NN focus)))))
     (. .) ))
+
 ( (S
     (FRAG
       (NP (NN Laptop) (NN battery) (NN recall) (NN saga)))
@@ -883,6 +892,7 @@
       (VP (VBZ joins)
         (PRT (RP in))))
     (. .) ))
+
 ( (S
     (NP (NNP Piniella))
     (VP
@@ -893,6 +903,7 @@
       (VP (VBP manage)
         (NP (NNP Cubs))))
     (. .) ))
+
 ( (SINV
     (S-TPC-1
       (NP (NNP PS3))
@@ -906,6 +917,7 @@
       (S (-NONE- *T*-1)))
     (NP-SBJ (CD gaming) (NN research) (NN firm))
     (. .) ))
+
 ( (SINV
     (S
       (NP (NNP Bully))
@@ -915,6 +927,7 @@
     (VP (VBZ says))
     (NP (NN judge))
     (. .) ))
+
 ( (SINV
     (S
       (NP (NNP World))
@@ -924,6 +937,7 @@
     (: :)
     (NP (NNP Rice))
     (. .) ))
+
 ( (S
     (NP (NNS Researchers))
     (: :)
@@ -931,6 +945,7 @@
       (NP (NN element) (CD 118))
       (VP (VBN created)))
     (. .) ))
+
 ( (FRAG
     (PP (IN In)
       (NP (NNS pictures)))
@@ -938,6 +953,7 @@
     (NP (NNP Sri) (NNP Lanka)
       (NN convoy) (NN blast))
     (. .) ))
+
 ( (SQ (MD Will)
     (NP-SBJ-1 (NNPS McGuires))
     (VP (VB keep)
@@ -947,6 +963,7 @@
         (VP (VBG giving)
           (ADVP (RB locally))))))
     (. ?) ))
+
 ( (SBARQ
     (WHNP (WP Who))
     (SQ
@@ -954,26 +971,31 @@
         (VP (VB cover)
           (NP (NNP Monday) (NN night)))))
     (. ?) ))
+
 ( (NP
     (NP (JJ Healthy) (NN move))
     (PP (IN for)
       (NP (NNP Disney)))
     (. ?) ))
+
 ( (NP
     (NP (NNP iPod) (NNS killers))
     (PP (IN for)
       (NP (NNP Christmas) (CD 2006)))
     (. ?) ))
+
 ( (S
     (NP (NNP Jobs))
     (PP (IN on)
         (NP (NNP Zune)))
     (. ?) ))
+
 ( (S
     (NP (PRP He))
     (VP (VBZ 's) (RB not)
       (VP (VBN bothered)))
   (. .) ))
+
 ( (S
     (NP (NNP India))
     (ADJP-PRD (JJ unhappy)
@@ -982,11 +1004,13 @@
       (PP (IN over)
         (NP (NN fighting))))
     (. .) ))
+
 ( (S
     (NP (NN Terror) (NNS suspects))
     (VP (PP-PRD (IN on)
       (NP (DT the) (NN run))))
     (. .) ))
+
 ( (S
     (NP (NN Food) (NNS shortages))
     (VP (VBG looming)
@@ -996,6 +1020,7 @@
           (VP (VBZ faces)
             (NP (NNS sanctions))))))
     (. .) ))
+
 ( (S
     (NP (NNP NK) (NN test))
     (VP 
@@ -1005,6 +1030,7 @@
           (VP (VB be)
             (VP (VBN confirmed))))))
     (. .) ))
+
 ( (S
     (NP (NNPS Aussies))
     (VP
@@ -1014,6 +1040,7 @@
             (VP (VB exhume)
               (NP (NN aid) (NNS workers)))))))
     (. .) ))
+
 ( (S
     (NP (NNP Disney))
     (VP (TO to)
@@ -1022,22 +1049,26 @@
         (PP (IN at)
           (NP (NNS parks)))))
     (. .) ))
+
 ( (NP
     (NP (NN Carnage))
     (PP (IN in)
       (NP (NNP Sri) (NNP Lanka)))
     (. .) ))
+
 ( (NP
     (NP (JJ Different) (NNS agendas))
     (PP (IN for)
       (NP (JJ past) (NN city) (NNS rivals)))
     (. .) ))
 
+
 ( (NP
     (NP (JJ Successful) (NN surgery))
     (PP (IN for)
       (NP (NNP Cech)))
     (. .) ))
+
 ( (S
     (NP-SBJ (-NONE- *))
     (VP
@@ -1053,6 +1084,7 @@
                 (VP (MD Wo) (RB n't)
                   (VP (VB die)))))))))
     (. .) ))
+
 ( (S
     (NP-SBJ (-NONE- *))
     (VP
@@ -1067,16 +1099,19 @@
           (PP (IN for)
             (NP (NNP Lou))))))
     (. .) ))
+
 ( (S
     (VP (TO To)
       (VP (VB oust)
         (NP (DT the) (NN president))))
     (. .) ))
+
 ( (NP
     (NP (NNP Jobs))
     (PP (IN on)
       (NP (DT the) (NN iPod)))
   (. .) ))
+
 ( (S
     (NP (NNP Disney))
     (VP (VBZ joins)
@@ -1087,6 +1122,7 @@
             (VP (VB endorse)
               (NP (JJ healthier) (NNS foods)))))))
     (. .) ))
+
 ( (S
     (NP (DT Another) (NN boss))
     (VP (VBZ bites)
@@ -1094,6 +1130,7 @@
       (PP (IN in)
         (NP (NNS options) (NN scandal))))
     (. .) ))
+
 ( (S
     (NP (NNP Sony))
     (VP (VBZ looks)
@@ -1102,6 +1139,7 @@
           (VP (VB challenge)
               (NP (NNP XBOX) (NNP Live))))))
     (. .) ))
+
 ( (S
     (CC But)
     (NP (NNP Cech))
@@ -1110,6 +1148,7 @@
       (PP (IN for)
         (NP (NN observation))))
     (. .) ))
+
 ( (S
     (NP (NNP Suppan))
     (VP (VBZ goes)
@@ -1122,6 +1161,7 @@
         (PP (IN on)
           (NP (DT the) (NN mound)))))
     (. .) ))
+
 ( (S 
     (NP-SBJ (-NONE- *))
     (VP (VB Switch)
@@ -1160,8 +1200,6 @@
               (NP (DT the) (NN meeting)))))))
     (. .)))
 
-
-
 ( (S
     (INTJ (UH Please))
     (NP-SBJ (-NONE- *))
@@ -1176,7 +1214,6 @@
                (NP (CD 5) (NNS minutes))
                (JJ late)))))))
     (. .)))
-
 
 ( (S
     (NP-SBJ (-NONE- *))
@@ -1201,12 +1238,12 @@
           (CC or)
           (NP (DT an) (JJ orange) (NN bead))))))
 
-
 ( (S
     (VP (VB Play)
       (NP
         (NNP Bon)
         (NNP Jovi)))))
+
 ( (S-HLN
     (NP-SBJ-1 (CD Fifty) (NNPS Kurds))
     (VP
@@ -1216,6 +1253,7 @@
           (NP-SBJ (-NONE- *-1))
           (VP (VBG waving)
             (NP (DT the) (JJ Iraqi) (NN flag))))))))
+
 ( (SBARQ (`` ``) (CC And)
   (WHNP (WP what))
   (SQ (VBP do)
@@ -1323,6 +1361,7 @@
       (VP (VB turn)
         (ADVP-DIR (RB left))))
    (. .)))
+
 ( (SQ
     (INTJ (UH hi))
     (, ,) (MD will)
@@ -1349,6 +1388,7 @@
     (VP (VB go)
       (NP (NN home)))
     (. ?)))
+
 ( (S
     (NP-SBJ
       (PRP He))
@@ -1619,6 +1659,7 @@
     (PP (IN from)
       (NP (NNP 24) (NNP Hour) (NNP Fitness))))
   (. .))
+
 ( (S
     (NP (NNP Mellitus))
     (VP (VBD was)
@@ -1635,7 +1676,6 @@
         (PP (IN on)
           (NP (DT the) (NN giraffe)))))
     (. !)))
-
 
 ( (S
     (NP (PRP I))
@@ -1705,7 +1745,6 @@
         (NP (PRP$ my) (NNS friends))))
     (. .)))
 
-
 ( (S
     (NP
       (NP (DT A) (NN third))
@@ -1732,6 +1771,7 @@
     (VP (VBP have)
       (NP (JJ orange) (NNS necks)))
     (. .)))
+
 ( (S
     (NP (DT The) (NN insured))
     (VP (VBZ signs)
@@ -1788,7 +1828,6 @@
         (ADJP (RB very) (JJ portable))))
     (. .)))
 
-
 ( (S
     (NP (PRP$ My) (NN dog))
     (VP (VBD ate)
@@ -1819,7 +1858,9 @@
         (ADJP (JJ ineffective))
         (PP (IN in)
           (NP (NNP Sudan)))))
-    (. .)))( (S
+    (. .)))
+    
+( (S
     (INTJ (UH Please))
     (VP (VB find)
       (NP (NNP Peter) (, ,) (NNP Paul) (, ,)
@@ -1855,13 +1896,16 @@
               (ADVP (RB then))
               (VB talk))))))
     (. .)))
+
 ( (S
     (NP (NNP Stanford))
     (VP (VBZ is)
       (VP (VBN located)
         (PP (IN in)
           (NP (NNP California)))))
-    (. .)))( (S
+    (. .)))
+    
+( (S
     (NP (PRP I))
     (VP (VBD was)
       (ADJP (JJ lax)
@@ -1899,6 +1943,7 @@
       (VP (VB close)
         (NP (JJ redundant) (NNS universities))))
     (. .)))
+
 ( (S
     (NP (PRP I))
     (VP (VBD found)
@@ -1956,7 +2001,6 @@
       (VP (VB stab)))
     (. ?)))
 
-
 (
   (SQ (NNP Does)
     (NP (NNS homeowners) (NN insurance))
@@ -1969,4 +2013,3 @@
     (NP (NNP (CNN)))
     (-RRB- -RRB-)
     (. .)))
-
