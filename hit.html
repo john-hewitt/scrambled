@@ -1,19 +1,44 @@
 <form>
-  <input type="text" id="sentence_field" disabled="true"><br />
-  <input type="reset" value="reset" onclick="reset_buttons()" />
+  <input type="text" id="sentence_field" disabled="true">&nbsp;
+  <input type="reset" value="clear" onclick="reset_buttons()" /><br />
+
+  <input type="button" value="submit and finish" onclick="reset_buttons()" />&nbsp;
+  <input type="button" value="submit and go to next" onclick="reset_buttons()" />
 </form>
 
 <script type="text/javascript">
-  // filler array for now
+  // sample input string
+  var input_str = 'column0,column1,column2,column3,column4,column5,column6,column7,column8,column9,column10,column11,column12,column13,column14,column15,column16,column17,column18,column19,column20,column21,column22,column23,column24,column25,column26,column27,column28,column29,cost,difficulty\nHe ||| \'s ||| not ||| bothered ||| .,My ||| cabbage ||| crop ||| is ||| infected with wilt ||| .,The ||| money ||| is ||| yours ||| .,"In ||| the 60s ||| , ||| Yoko ||| Ono ||| married John Lennon ||| and ||| campaigned for peace in Vietnam ||| .",Why ||| did ||| n\'t ||| you ||| take Australia-Asia Airline ||| ?,Where ||| is ||| your brother ||| going ||| on holiday ||| ?,Which ||| one ||| is ||| yours ||| ?,My ||| dog ||| needed ||| surgery ||| after eating a rupee coin ||| .,"hi ||| , ||| will ||| this ||| ticket ||| class ||| permit ||| me to change the return date to sfo ||| ?",Are ||| you ||| going ||| ?,Was ||| the ||| painting ||| harmed ||| during the war ||| ?,Is ||| Fred ||| in ||| the office ||| currently ||| ?,A third ||| of the money ||| is ||| mine ||| .,But ||| Cech ||| stays ||| in ||| for observation ||| .,Disney ||| joins ||| move to endorse healthier foods ||| .,Rabies ||| -LRB- from a Latin word meaning rage -RRB- ||| is ||| a viral disease that causes acute encephalitis in animals and people ||| .,Where ||| was ||| she ||| ?,Bin ||| Laden ||| comes ||| home ||| * to roost,Which ||| president ||| signed the declaration of independence ||| ?,World ||| united against North Korea ||| : ||| Rice ||| .,"Two metro trains ||| crash in Rome ||| , ||| dozens ||| hurt ||| .",Does ||| al ||| Qaida ||| have ||| 20 suitcase nukes ||| ?,"* ||| Book ||| flights , hotels and rental cars ||| with our quick and easy online reservations service ||| .",NK ||| test ||| yet ||| to be confirmed ||| .,A ||| funding ||| shortage ||| leaves ||| patients in Kent with suspected osteoporosis ||| facing a six-month wait for treatment ||| .,"He ||| slanted inside ||| , ||| broke toward the corner ||| and ||| caught the scoring pass ||| before ||| being pushed into a snowbank ||| .",* ||| Buy ||| me ||| some peanuts ||| .,The ||| insured ||| signs ||| the cancellation request form ||| .,` ||| Which ||| avatars ||| do ||| you ||| like ||| ? ||| \',Put ||| the tire pallet ||| on the truck ||| .,0.1,0'
+
+  var parsed = csv_to_array(input_str);
+  var headers = parsed[0];
+  var cols = parsed[1];
   var buttons = [];
-  for (var i = 0; i < 5; i++) {
-    var value = i;
+
+  // last 2 elements in cols are cost and difficulty
+  var sentences = cols.slice(0, cols.length - 2);
+  var curr_sentence_index = 0;  
+  var curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
+  curr_sentence_arr = shuffle_array(curr_sentence_arr);
+
+  // create buttons
+  for (var i = 0; i < curr_sentence_arr.length; i++) {
+    var value = curr_sentence_arr[i];
+    // dumb escaping for single + double quotes
+    value = value.replace(/'/g, "&#39;");
+    value = value.replace(/"/g, "&#34;");
     buttons.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
   }
 
+  // write buttons to page
+  var place_to_write = document.getElementById('placeholder');
   for (var i = 0; i < buttons.length; i++) {
     document.write(buttons[i]);
   }
+
+  /******************* 
+   * helpers *********
+   *******************/
 
   function btn_clicked(element) {
     document.getElementById('sentence_field').value += element.value + ' ';
@@ -24,5 +49,56 @@
     for (var i = 0; i < buttons.length; i++) {
       document.getElementById('btn_' + i).disabled = false;
     }
+  }
+
+  /******************* 
+   * utils ***********
+   *******************/
+  function shuffle_array(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  // ref: http://stackoverflow.com/a/1293163/2343
+  // This will parse a delimited string into an array of
+  // arrays. The default delimiter is the comma, but this
+  // can be overriden in the second argument.
+  function csv_to_array(strData, strDelimiter){
+      strDelimiter = (strDelimiter || ",");
+      var objPattern = new RegExp(
+          (
+              "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+              "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+              "([^\"\\" + strDelimiter + "\\r\\n]*))"
+          ),
+          "gi"
+          );
+      var arrData = [[]];
+      var arrMatches = null;
+      while (arrMatches = objPattern.exec( strData )){
+          var strMatchedDelimiter = arrMatches[ 1 ];
+          if (
+              strMatchedDelimiter.length &&
+              strMatchedDelimiter !== strDelimiter
+              ){
+              arrData.push( [] );
+          }
+          var strMatchedValue;
+          if (arrMatches[ 2 ]){
+              strMatchedValue = arrMatches[ 2 ].replace(
+                  new RegExp( "\"\"", "g" ),
+                  "\""
+                  );
+          } else {
+              strMatchedValue = arrMatches[ 3 ];
+          }
+          arrData[ arrData.length - 1 ].push( strMatchedValue );
+      }
+      return( arrData );
   }
 </script>
