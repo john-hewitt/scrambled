@@ -11,3 +11,7 @@ is parsed, definine the chunk size.
 
 ## res/stanford-english-trees.txt
 An example of a well-formed dependency parse corpus. 
+
+## hit.html
+
+HIT interface for workers to unscramble sentences.
