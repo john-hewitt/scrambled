@@ -21,24 +21,27 @@
   var curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
   curr_sentence_arr = shuffle_array(curr_sentence_arr);
 
-  // create buttons
-  for (var i = 0; i < curr_sentence_arr.length; i++) {
-    var value = curr_sentence_arr[i];
-    // dumb escaping for single + double quotes
-    value = value.replace(/'/g, "&#39;");
-    value = value.replace(/"/g, "&#34;");
-    buttons.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
-  }
-
-  // write buttons to page
-  var place_to_write = document.getElementById('placeholder');
-  for (var i = 0; i < buttons.length; i++) {
-    document.write(buttons[i]);
-  }
+  create_buttons(curr_sentence_arr, buttons);
+  write_to_page(buttons);
 
   /******************* 
    * helpers *********
    *******************/
+  function write_to_page(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      document.write(arr[i]);
+    }
+  }
+
+  function create_buttons(sentence_arr, button_arr) {
+    for (var i = 0; i < sentence_arr.length; i++) {
+      var value = sentence_arr[i];
+      // dumb escaping for single + double quotes
+      value = value.replace(/'/g, "&#39;");
+      value = value.replace(/"/g, "&#34;");
+      button_arr.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
+    }
+  }
 
   function btn_clicked(element) {
     document.getElementById('sentence_field').value += element.value + ' ';
