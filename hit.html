@@ -1,0 +1,28 @@
+<form>
+  <input type="text" id="sentence_field" ><br />
+  <input type="reset" value="reset" onclick="reset_buttons()" />
+</form>
+
+<script type="text/javascript">
+  // filler array for now
+  var buttons = [];
+  for (var i = 0; i < 5; i++) {
+    var value = i;
+    buttons.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    document.write(buttons[i]);
+  }
+
+  function btn_clicked(element) {
+    document.getElementById('sentence_field').value += element.value + ' ';
+    element.disabled = true;
+  }
+
+  function reset_buttons() {
+    for (var i = 0; i < buttons.length; i++) {
+      document.getElementById('btn_' + i).disabled = false;
+    }
+  }
+</script>
