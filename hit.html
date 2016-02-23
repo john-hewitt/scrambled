@@ -1,15 +1,12 @@
-<form>
-  <input type="text" id="sentence_field" disabled="true">&nbsp;
-  <input type="reset" value="clear" onclick="reset_buttons()" /><br />
-
-  <input type="button" value="submit and finish" onclick="reset_buttons()" />&nbsp;
-  <input type="button" value="submit and go to next" onclick="reset_buttons()" />
-</form>
-
 <script type="text/javascript">
-  var max_num_sentences = 30;
+
   // sample input string
-  var input_str = 'column0,column1,column2,column3,column4,column5,column6,column7,column8,column9,column10,column11,column12,column13,column14,column15,column16,column17,column18,column19,column20,column21,column22,column23,column24,column25,column26,column27,column28,column29,cost,difficulty\nHe ||| \'s ||| not ||| bothered ||| .,My ||| cabbage ||| crop ||| is ||| infected with wilt ||| .,The ||| money ||| is ||| yours ||| .,"In ||| the 60s ||| , ||| Yoko ||| Ono ||| married John Lennon ||| and ||| campaigned for peace in Vietnam ||| .",Why ||| did ||| n\'t ||| you ||| take Australia-Asia Airline ||| ?,Where ||| is ||| your brother ||| going ||| on holiday ||| ?,Which ||| one ||| is ||| yours ||| ?,My ||| dog ||| needed ||| surgery ||| after eating a rupee coin ||| .,"hi ||| , ||| will ||| this ||| ticket ||| class ||| permit ||| me to change the return date to sfo ||| ?",Are ||| you ||| going ||| ?,Was ||| the ||| painting ||| harmed ||| during the war ||| ?,Is ||| Fred ||| in ||| the office ||| currently ||| ?,A third ||| of the money ||| is ||| mine ||| .,But ||| Cech ||| stays ||| in ||| for observation ||| .,Disney ||| joins ||| move to endorse healthier foods ||| .,Rabies ||| -LRB- from a Latin word meaning rage -RRB- ||| is ||| a viral disease that causes acute encephalitis in animals and people ||| .,Where ||| was ||| she ||| ?,Bin ||| Laden ||| comes ||| home ||| * to roost,Which ||| president ||| signed the declaration of independence ||| ?,World ||| united against North Korea ||| : ||| Rice ||| .,"Two metro trains ||| crash in Rome ||| , ||| dozens ||| hurt ||| .",Does ||| al ||| Qaida ||| have ||| 20 suitcase nukes ||| ?,"* ||| Book ||| flights , hotels and rental cars ||| with our quick and easy online reservations service ||| .",NK ||| test ||| yet ||| to be confirmed ||| .,A ||| funding ||| shortage ||| leaves ||| patients in Kent with suspected osteoporosis ||| facing a six-month wait for treatment ||| .,"He ||| slanted inside ||| , ||| broke toward the corner ||| and ||| caught the scoring pass ||| before ||| being pushed into a snowbank ||| .",* ||| Buy ||| me ||| some peanuts ||| .,The ||| insured ||| signs ||| the cancellation request form ||| .,` ||| Which ||| avatars ||| do ||| you ||| like ||| ? ||| \',Put ||| the tire pallet ||| on the truck ||| .,0.1,0'
+  var input_str = 'column0,column1,column2,column3,column4,column5,column6,column7,column8,column9,column10,column11,column12,column13,column14,column15,column16,column17,column18,column19,column20,column21,column22,column23,column24,column25,column26,column27,column28,column29,cost,difficulty\nHe ||| \'s ||| not ||| bothered ||| .,My ||| cabbage ||| crop ||| is ||| infected with wilt ||| .,The ||| money ||| is ||| yours ||| .,"In ||| the 60s ||| , ||| Yoko ||| Ono ||| married John Lennon ||| and ||| campaigned for peace in Vietnam ||| .",Why ||| did ||| n\'t ||| you ||| take Australia-Asia Airline ||| ?,Where ||| is ||| your brother ||| going ||| on holiday ||| ?,Which ||| one ||| is ||| yours ||| ?,My ||| dog ||| needed ||| surgery ||| after eating a rupee coin ||| .,"hi ||| , ||| will ||| this ||| ticket ||| class ||| permit ||| me to change the return date to sfo ||| ?",Are ||| you ||| going ||| ?,Was ||| the ||| painting ||| harmed ||| during the war ||| ?,Is ||| Fred ||| in ||| the office ||| currently ||| ?,A third ||| of the money ||| is ||| mine ||| .,But ||| Cech ||| stays ||| in ||| for observation ||| .,Disney ||| joins ||| move to endorse healthier foods ||| .,Rabies ||| -LRB- from a Latin word meaning rage -RRB- ||| is ||| a viral disease that causes acute encephalitis in animals and people ||| .,Where ||| was ||| she ||| ?,Bin ||| Laden ||| comes ||| home ||| * to roost,Which ||| president ||| signed the declaration of independence ||| ?,World ||| united against North Korea ||| : ||| Rice ||| .,"Two metro trains ||| crash in Rome ||| , ||| dozens ||| hurt ||| .",Does ||| al ||| Qaida ||| have ||| 20 suitcase nukes ||| ?,"* ||| Book ||| flights , hotels and rental cars ||| with our quick and easy online reservations service ||| .",NK ||| test ||| yet ||| to be confirmed ||| .,A ||| funding ||| shortage ||| leaves ||| patients in Kent with suspected osteoporosis ||| facing a six-month wait for treatment ||| .,"He ||| slanted inside ||| , ||| broke toward the corner ||| and ||| caught the scoring pass ||| before ||| being pushed into a snowbank ||| .",* ||| Buy ||| me ||| some peanuts ||| .,The ||| insured ||| signs ||| the cancellation request form ||| .,` ||| Which ||| avatars ||| do ||| you ||| like ||| ? ||| \',Put ||| the tire pallet ||| on the truck ||| .,0.1,0';
+
+  var max_num_sentences = 30;
+  var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p>INSTRUCTIONS GO HERE You will be paid ${cost} per sentence. Enter instructions for your HIT. It is a good idea to:</p><ul><li>Be as specific as possible in your instructions to eliminate ambiguity. For example, when asking workers to extract texts from an image, ask workers to type the texts exactly as shown in the image including capitalization, spaces and punctuations.</li><li>Include an example of a right answer and a wrong answer. Highlight important information where appropriate.</li><li>Clarify what you expect if a HIT is not doable because of missing data or other problems.</li></ul></div></div><!-- End Instructions --><!-- Content Body --><section><form><input class="form-control" id="sentence_field" name="Q';
+  var html_str_back = 'Answer" size="120" type="text" />';
+  var html_str_footer = '<input onclick="reset_buttons()" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="submit and go to next" /></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
 
   var parsed = csv_to_array(input_str);
   var headers = parsed[0];
@@ -19,25 +16,66 @@
   // last 2 elements in cols are cost and difficulty, so splice them out
   var sentences = cols.slice(0, cols.length - 2);
   var curr_sentence_index = 0;
-  var curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
-  curr_sentence_arr = shuffle_array(curr_sentence_arr);
+  var curr_sentence_arr = [];
 
-  create_buttons(curr_sentence_arr, buttons);
-  write_to_page(buttons);
+  // first time
+  write_fresh_page();  
 
   /******************* 
    * helpers *********
    *******************/
+  function write_fresh_page() {
+    // clear the page
+    if (document.body) {
+      document.body.innerHTML = '';
+    }
+
+    // janky janky janky
+    var sentence_buttons = sentence_buttons_as_str() + '<br />';
+    var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
+    document.write(html_str);
+
+    // create_and_write_sentence_buttons();
+  }
+
+  function sentence_buttons_as_str() {
+    buttons = [];
+
+    curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
+    curr_sentence_arr = shuffle_array(curr_sentence_arr);
+
+    create_buttons(curr_sentence_arr, buttons);
+    return button_arr_to_str(buttons);
+  }
+
+  function create_and_write_sentence_buttons() {
+    buttons = [];
+
+    curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
+    curr_sentence_arr = shuffle_array(curr_sentence_arr);
+
+    create_buttons(curr_sentence_arr, buttons);
+    write_to_page(buttons);
+  }
+
   function write_to_page(arr) {
     for (var i = 0; i < arr.length; i++) {
       document.write(arr[i]);
     }
   }
 
+  function button_arr_to_str(arr) {
+    var s = '';
+    for (var i = 0; i < arr.length; i++) {
+      s += arr[i];
+    }
+    return s;
+  }
+
   function create_buttons(sentence_arr, button_arr) {
     for (var i = 0; i < sentence_arr.length; i++) {
       var value = sentence_arr[i];
-      // dumb escaping for single + double quotes
+      // mturk screws up escaping, so...we're just gonna get rid of them :x
       value = value.replace(/'/g, "&#39;");
       value = value.replace(/"/g, "&#34;");
       button_arr.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
@@ -60,6 +98,7 @@
 
   function submit_and_done() {
     // TODO: record data and submit as done
+    console.log('done!');
   }
 
   function submit_and_next() {
@@ -67,8 +106,10 @@
 
     curr_sentence_index += 1;
 
-    if (curr_sentence_index == max_num_sentences) {
+    if (curr_sentence_index >= max_num_sentences) {
       // TODO: we are out of sentences, so submit as done
+    } else {
+      write_fresh_page();
     }
   }
 
