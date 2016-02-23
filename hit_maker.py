@@ -17,28 +17,38 @@ costs = (0.1, 0.3, 0.5)
 import sys
 import unicodecsv as csv
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 3:
+    print >> sys.stderr, "not enough stuff"
     exit(1)
 
 difficulty = sys.argv[1]
+write_header_bool = int(sys.argv[2])
 
 # All 30 sentences should be used in the CSV
 sentences = []
 for line in sys.stdin:
     sentences.append(line.strip())
 
+# However many sentences were used, give as many answer columns.
+for i in range(len(sentences)):
+    sentences.append('')
+
+
 # Write the titles of the columns.
-rows = []
+row_header = []
 for i in range(0,30):
-    rows.append('column' + str(i))
-rows.append('cost')
-rows.append('difficulty')
+    row_header.append('sentence' + str(i))
+for i in range(0,30):
+    row_header.append('answer' + str(i))
+row_header.append('cost')
+row_header.append('difficulty')
 
 
 # Each line should have a difficulty and a cost
-with open('HIT_csv', 'a') as out:
+with sys.stdout as out:
     csv_out = csv.writer(out)
-    csv_out.writerow(rows)
+    if write_header_bool:
+        csv_out.writerow(row_header)
     for cost in costs:
         sentences.append(str(cost))
         sentences.append(str(difficulty))
