@@ -1,4 +1,16 @@
-<script type="text/javascript">
+<?xml version="1.0" encoding="UTF-8"?>
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+  <HTMLContent><![CDATA[
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+ </head>
+ <body>
+
+
+  <script type="text/javascript">
 
   // sample input string
   var input_str = 'column0,column1,column2,column3,column4,column5,column6,column7,column8,column9,column10,column11,column12,column13,column14,column15,column16,column17,column18,column19,column20,column21,column22,column23,column24,column25,column26,column27,column28,column29,cost,difficulty\nHe ||| \'s ||| not ||| bothered ||| .,My ||| cabbage ||| crop ||| is ||| infected with wilt ||| .,The ||| money ||| is ||| yours ||| .,"In ||| the 60s ||| , ||| Yoko ||| Ono ||| married John Lennon ||| and ||| campaigned for peace in Vietnam ||| .",Why ||| did ||| n\'t ||| you ||| take Australia-Asia Airline ||| ?,Where ||| is ||| your brother ||| going ||| on holiday ||| ?,Which ||| one ||| is ||| yours ||| ?,My ||| dog ||| needed ||| surgery ||| after eating a rupee coin ||| .,"hi ||| , ||| will ||| this ||| ticket ||| class ||| permit ||| me to change the return date to sfo ||| ?",Are ||| you ||| going ||| ?,Was ||| the ||| painting ||| harmed ||| during the war ||| ?,Is ||| Fred ||| in ||| the office ||| currently ||| ?,A third ||| of the money ||| is ||| mine ||| .,But ||| Cech ||| stays ||| in ||| for observation ||| .,Disney ||| joins ||| move to endorse healthier foods ||| .,Rabies ||| -LRB- from a Latin word meaning rage -RRB- ||| is ||| a viral disease that causes acute encephalitis in animals and people ||| .,Where ||| was ||| she ||| ?,Bin ||| Laden ||| comes ||| home ||| * to roost,Which ||| president ||| signed the declaration of independence ||| ?,World ||| united against North Korea ||| : ||| Rice ||| .,"Two metro trains ||| crash in Rome ||| , ||| dozens ||| hurt ||| .",Does ||| al ||| Qaida ||| have ||| 20 suitcase nukes ||| ?,"* ||| Book ||| flights , hotels and rental cars ||| with our quick and easy online reservations service ||| .",NK ||| test ||| yet ||| to be confirmed ||| .,A ||| funding ||| shortage ||| leaves ||| patients in Kent with suspected osteoporosis ||| facing a six-month wait for treatment ||| .,"He ||| slanted inside ||| , ||| broke toward the corner ||| and ||| caught the scoring pass ||| before ||| being pushed into a snowbank ||| .",* ||| Buy ||| me ||| some peanuts ||| .,The ||| insured ||| signs ||| the cancellation request form ||| .,` ||| Which ||| avatars ||| do ||| you ||| like ||| ? ||| \',Put ||| the tire pallet ||| on the truck ||| .,0.1,0';
@@ -164,3 +176,56 @@
     return( arrData );
   }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <form name='mturk_form' method='post' id='mturk_form' action='https://www.mturk.com/mturk/externalSubmit'>
+  <input type='hidden' value='' name='assignmentId' id='assignmentId'/>
+  <h1>What's up?</h1>
+  <p><textarea name='comment' cols='80' rows='3'></textarea></p>
+  <p><input type='submit' id='submitButton' value='Submit' /></p></form>
+  <script language='Javascript'>turkSetAssignmentID();</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </body>
+</html>
+]]>
+  </HTMLContent>
+  <FrameHeight>450</FrameHeight>
+</HTMLQuestion>
