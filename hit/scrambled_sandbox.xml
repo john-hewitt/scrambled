@@ -16,6 +16,7 @@
     var sentences = ["${sentence0}", "${sentence1}", "${sentence2}", "${sentence3}", "${sentence4}", "${sentence5}", "${sentence6}", "${sentence7}", "${sentence8}", "${sentence9}", "${sentence10}", "${sentence11}", "${sentence12}", "${sentence13}", "${sentence14}", "${sentence15}", "${sentence16}", "${sentence17}", "${sentence18}", "${sentence19}", "${sentence20}", "${sentence21}", "${sentence22}", "${sentence23}", "${sentence24}", "${sentence25}", "${sentence26}", "${sentence27}", "${sentence28}", "${sentence29}"];
 
     var result_string = '';
+    var delimited_input_sentence = '';
 
     var submit_url = 'https://workersandbox.mturk.com/mturk/externalSubmit';
 
@@ -41,6 +42,8 @@
     function write_fresh_page() {
 
       curr_clicked_count = 0;
+      delimited_input_sentence = '';
+
       // clear the page
       if (document.body) {
         document.body.innerHTML = '';
@@ -50,6 +53,8 @@
       var sentence_buttons = sentence_buttons_as_str() + '<br />';
       var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
       document.write(html_str);
+
+      document.getElementById('unscramble_result').value = result_string;
 
       // don't let worker click buttons while previewing
       check_assignment_id();
@@ -113,6 +118,8 @@
      *******************/
     function btn_clicked(element) {
       document.getElementById('sentence_field').value += element.value + ' ';
+      delimited_input_sentence += element.value + ' ||| ';
+
       element.disabled = true;
 
       curr_clicked_count += 1;
@@ -133,8 +140,8 @@
     function submit_and_next() {
       // TODO: record data
       var submit_col_name = 'sentence' + curr_sentence_index;
-      var input_sentence = document.getElementById('sentence_field').value;
-      result_string += input_sentence + ' $$$ ';
+      //var input_sentence = document.getElementById('sentence_field').value;
+      result_string += delimited_input_sentence + ' $$$ ';
 
       //var assignment_id_val = document.getElementById('assignmentId').value;
       //post(submit_url, {submit_col_name: input_sentence.value, assignmentId: assignment_id_val});
