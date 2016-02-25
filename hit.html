@@ -6,7 +6,7 @@
   var max_num_sentences = 30;
   var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p>INSTRUCTIONS GO HERE You will be paid ${cost} per sentence. Enter instructions for your HIT. It is a good idea to:</p><ul><li>Be as specific as possible in your instructions to eliminate ambiguity. For example, when asking workers to extract texts from an image, ask workers to type the texts exactly as shown in the image including capitalization, spaces and punctuations.</li><li>Include an example of a right answer and a wrong answer. Highlight important information where appropriate.</li><li>Clarify what you expect if a HIT is not doable because of missing data or other problems.</li></ul></div></div><!-- End Instructions --><!-- Content Body --><section><form><input class="form-control" id="sentence_field" name="Q';
   var html_str_back = 'Answer" size="120" type="text" />';
-  var html_str_footer = '<input onclick="reset_buttons()" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="submit and go to next" /></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
+  var html_str_footer = '<input onclick="reset_buttons()" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="submit and go to next" id="next_button" disabled=true /></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
 
   var parsed = csv_to_array(input_str);
   var headers = parsed[0];
@@ -16,6 +16,7 @@
   // last 2 elements in cols are cost and difficulty, so splice them out
   var sentences = cols.slice(0, cols.length - 2);
   var curr_sentence_index = 0;
+  var curr_clicked_count = 0;
   var curr_sentence_arr = [];
 
   // first time
@@ -25,6 +26,7 @@
    * helpers *********
    *******************/
   function write_fresh_page() {
+    curr_clicked_count = 0;
     // clear the page
     if (document.body) {
       document.body.innerHTML = '';
@@ -35,7 +37,6 @@
     var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
     document.write(html_str);
 
-    // create_and_write_sentence_buttons();
   }
 
   function sentence_buttons_as_str() {
@@ -46,16 +47,6 @@
 
     create_buttons(curr_sentence_arr, buttons);
     return button_arr_to_str(buttons);
-  }
-
-  function create_and_write_sentence_buttons() {
-    buttons = [];
-
-    curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
-    curr_sentence_arr = shuffle_array(curr_sentence_arr);
-
-    create_buttons(curr_sentence_arr, buttons);
-    write_to_page(buttons);
   }
 
   function write_to_page(arr) {
@@ -88,12 +79,19 @@
   function btn_clicked(element) {
     document.getElementById('sentence_field').value += element.value + ' ';
     element.disabled = true;
+    curr_clicked_count += 1;
+
+    if (curr_clicked_count == curr_sentence_arr.length) {
+      document.getElementById('next_button').disabled = false;
+    }
   }
 
   function reset_buttons() {
     for (var i = 0; i < buttons.length; i++) {
       document.getElementById('btn_' + i).disabled = false;
     }
+    curr_clicked_count = 0;
+    document.getElementById('next_button').disabled = true;
   }
 
   function submit_and_done() {
