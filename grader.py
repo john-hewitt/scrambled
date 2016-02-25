@@ -10,6 +10,7 @@
 import sys
 import unicodecsv as csv
 import math
+import time
 
 
 
@@ -40,12 +41,14 @@ for line in reader:
         # Store the gold-standard ordering of chunks
         chunk_positions = {}
         for count, chunk in enumerate(gold_array):
-            chunk_positions[chunk] = count
+            chunk_positions[chunk+ "___" + str(count)] = count
 
         # Compute the number of inversions in the answer ordering
         inversions = 0
         for index, chunk in enumerate(answer_array):
+            chunk = chunk + "___" + str(index)
             rank = chunk_positions[chunk]
+            print index, chunk, chunk_positions[chunk]
             inversions += abs(rank - index)
 
         score_count = max_inversions - inversions
