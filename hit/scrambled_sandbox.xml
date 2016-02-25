@@ -20,7 +20,7 @@
 
     var submit_url = 'https://workersandbox.mturk.com/mturk/externalSubmit';
 
-    var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p>You will be paid $${cost} per sentence. Below you'll find a sentence split into chunks and scrambled. De-scramble the sentence by clicking on the chunks. The first chunk of the correct ordering of the sentence should be clicked first; then the second, and on.</p><ul><li> De-scramble as many sentences as you wish. You will be paid $${cost} for every sentence.</li><li>To submit one sentence and go onto the next, click the grey "go on" button.</li><li>When you don't want to descramble any more sentences, click the MTurk yellow submit button.</li><li>Once you've submitted, do not accept any more of our HITs of the same kind. If you do, you will be rejected.</ul></div></div><!-- End Instructions --><!-- Content Body --><section><form name="mturk_form" method="post" id="mturk_form" action="' + submit_url + '"><input type="hidden" value="" name="assignmentId" id="assignmentId"/><input type="hidden" value="" name="unscrambleResult" id="unscramble_result"/><input class="form-control" id="sentence_field" name="sentence';
+    var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p>You will be paid $${cost} per sentence. Below you\'ll find a sentence split into chunks and scrambled. De-scramble the sentence by clicking on the chunks. The first chunk of the correct ordering of the sentence should be clicked first; then the second, and on.</p><ul><li> De-scramble as many sentences as you wish. You will be paid $${cost} for every sentence.</li><li>To submit one sentence and go onto the next, click the grey "go on" button.</li><li>When you don\'t want to descramble any more sentences, click the MTurk yellow submit button.</li><li>Once you\'ve submitted, do not accept any more of our HITs of the same kind. If you do, you will be rejected.</ul></div></div><!-- End Instructions --><!-- Content Body --><section><form name="mturk_form" method="post" id="mturk_form" action="' + submit_url + '"><input type="hidden" value="" name="assignmentId" id="assignmentId"/><input type="hidden" value="" name="unscrambleResult" id="unscramble_result"/><input type="hidden" value="" name="cost" id="cost_field"/><input type="hidden" value="" name="difficulty" id="difficulty_field"/><input class="form-control" id="sentence_field" name="sentence';
 
     var html_str_back = '" size="120" type="text" />';
 
@@ -54,7 +54,10 @@
       var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
       document.write(html_str);
 
+      // rewrite everything every time because we are dumb
       document.getElementById('unscramble_result').value = result_string;
+      document.getElementById('cost_field').value = ${cost};
+      document.getElementById('difficulty_field').value = ${difficulty};
 
       // don't let worker click buttons while previewing
       check_assignment_id();
@@ -144,8 +147,10 @@
 
       curr_sentence_index += 1;
 
-      if (curr_sentence_index >= max_num_sentences) {
+      // max_num_sentences
+      if (curr_sentence_index >= 2) {
         // TODO: we are out of sentences, so submit as done
+        console.log('WE ARE DONE ');
 
       } else {
         write_fresh_page();
