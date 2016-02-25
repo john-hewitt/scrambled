@@ -12,7 +12,7 @@
 #   sentence 1-30   difficulty  payment
 #
 
-costs = (0.1, 0.3, 0.5)
+costs = (0.01, 0.03, 0.05)
 
 import sys
 import unicodecsv as csv
