@@ -82,7 +82,6 @@
     function sentence_buttons_as_str() {
       buttons = [];
 
-      //var mturk_var_name = 'sentence' + curr_sentence_index;
       var sentence = sentences[curr_sentence_index].replace(/'/g, "&#39;").replace(/"/g, "&#34;");
       curr_sentence_arr = sentence.split(' ||| ');
 
@@ -138,14 +137,9 @@
     }
 
     function submit_and_next() {
-      // TODO: record data
       var submit_col_name = 'sentence' + curr_sentence_index;
-      //var input_sentence = document.getElementById('sentence_field').value;
       result_string += delimited_input_sentence + ' $$$ ';
 
-      //var assignment_id_val = document.getElementById('assignmentId').value;
-      //post(submit_url, {submit_col_name: input_sentence.value, assignmentId: assignment_id_val});
-      console.log('>>> result string: ' + result_string);
       document.getElementById('unscramble_result').value = result_string;
 
       curr_sentence_index += 1;
