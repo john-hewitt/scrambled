@@ -39,7 +39,6 @@
      * helpers *********
      *******************/
     function write_fresh_page() {
-      console.log('inside write fresh page');
 
       curr_clicked_count = 0;
       // clear the page
@@ -49,11 +48,8 @@
 
       // janky janky janky
       var sentence_buttons = sentence_buttons_as_str() + '<br />';
-      console.log('made sentence buttons');
       var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
-      console.log('made the html str');
       document.write(html_str);
-      console.log('wrote the string to the page');
 
       // don't let worker click buttons while previewing
       check_assignment_id();
@@ -80,7 +76,6 @@
 
     function sentence_buttons_as_str() {
       buttons = [];
-      console.log('inside sentence buttons as str');
 
       //var mturk_var_name = 'sentence' + curr_sentence_index;
       var sentence = sentences[curr_sentence_index].replace(/'/g, "&#39;").replace(/"/g, "&#34;");
@@ -138,7 +133,7 @@
     function submit_and_next() {
       // TODO: record data
       var submit_col_name = 'sentence' + curr_sentence_index;
-      var input_sentence = document.getElementById('sentence_field');
+      var input_sentence = document.getElementById('sentence_field').value;
       result_string += input_sentence + ' $$$ ';
 
       //var assignment_id_val = document.getElementById('assignmentId').value;
@@ -152,7 +147,6 @@
         // TODO: we are out of sentences, so submit as done
 
       } else {
-        console.log('boutta write a fresh page');
         write_fresh_page();
       }
     }
