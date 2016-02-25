@@ -19,7 +19,7 @@
 
     var html_str_back = 'Answer" size="120" type="text" />';
 
-    var html_str_footer = '<input onclick="reset_buttons()" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="submit and go to next" id="next_button" disabled=true /><p><input type="submit" id="submitButton" value="Submit" /></p></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
+    var html_str_footer = '<input onclick="reset_buttons()" id="clear_btn" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="submit and go to next" id="next_button" disabled=true /><p><input type="submit" id="submitButton" value="Submit" /></p></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
 
     var buttons = [];
 
@@ -48,7 +48,26 @@
       var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
       document.write(html_str);
 
+      check_assignment_id();
+    }
+
+    function check_assignment_id() {
+      // default turk function: disable submit button
       turkSetAssignmentID();
+
+      // also disable sentence input buttons
+      var assignment_id = turkGetParam('assignmentId', "");
+      if (assignment_id == "ASSIGNMENT_ID_NOT_AVAILABLE") { 
+         // If we're previewing, disable the sentence buttons
+         curr_clicked_count = 0;
+
+         for (var i = 0; i < buttons.length; i++) {
+           document.getElementById('btn_' + i).disabled = true;
+         }
+         
+         document.getElementById('next_button').disabled = true;
+         document.getElementById('clear_btn').disabled = true;
+       }
     }
 
     function sentence_buttons_as_str() {
@@ -83,8 +102,6 @@
     function create_buttons(sentence_arr, button_arr) {
       for (var i = 0; i < sentence_arr.length; i++) {
         var value = sentence_arr[i];
-        //value = value.replace(/'/g, "&#39;");
-        //value = value.replace(/"/g, "&#34;");
         button_arr.push("<input type='button' value='" + value + "' onclick='btn_clicked(this)' id='btn_" + i + "' />");
       }
     }
