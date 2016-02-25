@@ -37,7 +37,6 @@
     var html_str = html_str_front + curr_sentence_index + html_str_back + sentence_buttons + html_str_footer;
     document.write(html_str);
 
-    // create_and_write_sentence_buttons();
   }
 
   function sentence_buttons_as_str() {
@@ -48,16 +47,6 @@
 
     create_buttons(curr_sentence_arr, buttons);
     return button_arr_to_str(buttons);
-  }
-
-  function create_and_write_sentence_buttons() {
-    buttons = [];
-
-    curr_sentence_arr = sentences[curr_sentence_index].split(' ||| ');
-    curr_sentence_arr = shuffle_array(curr_sentence_arr);
-
-    create_buttons(curr_sentence_arr, buttons);
-    write_to_page(buttons);
   }
 
   function write_to_page(arr) {
