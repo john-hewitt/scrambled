@@ -149,8 +149,7 @@
 
       curr_sentence_index += 1;
 
-      // max_num_sentences
-      if (curr_sentence_index >= 2) {
+      if (curr_sentence_index >= max_num_sentences) {
         // TODO: we are out of sentences, so submit as done
         document.getElementById('next_button').value = 'no more sentences left';
         document.getElementById('next_button').disabled = true;
