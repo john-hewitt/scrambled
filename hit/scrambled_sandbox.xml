@@ -11,30 +11,7 @@
 
 
   <script type="text/javascript">
-    var max_num_sentences = 30;
-
-    var sentences = ["${sentence0}", "${sentence1}", "${sentence2}", "${sentence3}", "${sentence4}", "${sentence5}", "${sentence6}", "${sentence7}", "${sentence8}", "${sentence9}", "${sentence10}", "${sentence11}", "${sentence12}", "${sentence13}", "${sentence14}", "${sentence15}", "${sentence16}", "${sentence17}", "${sentence18}", "${sentence19}", "${sentence20}", "${sentence21}", "${sentence22}", "${sentence23}", "${sentence24}", "${sentence25}", "${sentence26}", "${sentence27}", "${sentence28}", "${sentence29}"];
-
-    var result_string = '';
-    var delimited_input_sentence = '';
-
-    var submit_url = 'https://workersandbox.mturk.com/mturk/externalSubmit';
-
-    var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p>You will be paid a base rate of $0.01 for starting this HIT, and a bonus of $${cost} for each sentence correctly you correctly unscramble. Below you\'ll find a sentence split into chunks and scrambled. De-scramble the sentence by clicking on the chunks. The first chunk of the correct ordering of the sentence should be clicked first; then the second, and on.</p><ul><li> De-scramble as many sentences as you wish.</li><li>If you make a mistake, click the clear button to start over for that sentence.</li><li>To submit one sentence and go onto the next, click the grey "go on" button.</li><li>When you don\'t want to descramble any more sentences, click the gray submit button (not the MTurk yellow submit button).</li><li><strong>Once you\'ve submitted, do not accept any more of our HITs of the same kind. If you do, you will be rejected.</strong></li></ul></div></div><!-- End Instructions --><!-- Content Body --><section><form name="mturk_form" method="post" id="mturk_form" action="' + submit_url + '"><input type="hidden" value="" name="assignmentId" id="assignmentId"/><input type="hidden" value="" name="unscrambleResult" id="unscramble_result"/><input type="hidden" value="" name="cost" id="cost_field"/><input type="hidden" value="" name="difficulty" id="difficulty_field"/><input class="form-control" id="sentence_field" name="sentence';
-
-    var html_str_back = '" size="120" type="text" />';
-
-    var html_str_footer = '<input onclick="reset_buttons()" id="clear_btn" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="go on to next sentence" id="next_button" disabled=true /><p><input type="submit" id="submitButton" value="Submit" /></p></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
-
-    var buttons = [];
-
-    // last 2 elements in cols are cost and difficulty, so splice them out
-    var curr_sentence_index = 0;
-    var curr_clicked_count = 0;
-    var curr_sentence_arr = [];
-
-    // first time
-    write_fresh_page();  
+    // define all the functions at the top because Firefox is stupid
 
     /******************* 
      * helpers *********
@@ -210,6 +187,32 @@
       }
       return( arrData );
     }
+    
+
+    var max_num_sentences = 30;
+
+    var sentences = ["${sentence0}", "${sentence1}", "${sentence2}", "${sentence3}", "${sentence4}", "${sentence5}", "${sentence6}", "${sentence7}", "${sentence8}", "${sentence9}", "${sentence10}", "${sentence11}", "${sentence12}", "${sentence13}", "${sentence14}", "${sentence15}", "${sentence16}", "${sentence17}", "${sentence18}", "${sentence19}", "${sentence20}", "${sentence21}", "${sentence22}", "${sentence23}", "${sentence24}", "${sentence25}", "${sentence26}", "${sentence27}", "${sentence28}", "${sentence29}"];
+
+    var result_string = '';
+    var delimited_input_sentence = '';
+
+    var submit_url = 'https://workersandbox.mturk.com/mturk/externalSubmit';
+
+    var html_str_front = '<!-- Bootstrap v3.0.3 --><link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" /><section class="container" id="Other" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;"><div class="row col-xs-12 col-md-12"><!-- Instructions --><div class="panel panel-primary"><div class="panel-heading"><strong>Instructions</strong></div><div class="panel-body"><p><strong>Please only do this HIT if you are using the Google Chrome or Safari. It will not work properly in Firefox or IE, and we will have to reject your HIT.</strong></p><p>You will be paid a base rate of $0.01 for starting this HIT, and a bonus of $${cost} for each sentence correctly you correctly unscramble. Below you\'ll find a sentence split into chunks and scrambled. De-scramble the sentence by clicking on the chunks. The first chunk of the correct ordering of the sentence should be clicked first; then the second, and on.</p><ul><li> De-scramble as many sentences as you wish.</li><li>If you make a mistake, click the clear button to start over for that sentence.</li><li>To submit one sentence and go onto the next, click the grey "go on" button.</li><li>When you don\'t want to descramble any more sentences, click the gray submit button (not the MTurk yellow submit button).</li><li><strong>Once you\'ve submitted, do not accept any more of our HITs of the same kind. If you do, you will be rejected.</strong></li></ul></div></div><!-- End Instructions --><!-- Content Body --><section><form name="mturk_form" method="post" id="mturk_form" action="' + submit_url + '"><input type="hidden" value="" name="assignmentId" id="assignmentId"/><input type="hidden" value="" name="unscrambleResult" id="unscramble_result"/><input type="hidden" value="" name="cost" id="cost_field"/><input type="hidden" value="" name="difficulty" id="difficulty_field"/><input class="form-control" id="sentence_field" name="sentence';
+
+    var html_str_back = '" size="120" type="text" />';
+
+    var html_str_footer = '<input onclick="reset_buttons()" id="clear_btn" type="reset" value="clear" />&nbsp; <input onclick="submit_and_next()" type="button" value="go on to next sentence" id="next_button" disabled=true /><p><input type="submit" id="submitButton" value="Submit" /></p></form></section><!-- End Content Body --></div></section><!-- close container --><style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }</style>';
+
+    var buttons = [];
+
+    // last 2 elements in cols are cost and difficulty, so splice them out
+    var curr_sentence_index = 0;
+    var curr_clicked_count = 0;
+    var curr_sentence_arr = [];
+
+    // first time
+    write_fresh_page(); 
   </script>
 
  </body>
