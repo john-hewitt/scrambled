@@ -46,7 +46,7 @@ row_header.append('difficulty')
 
 # Each line should have a difficulty and a cost
 with sys.stdout as out:
-    csv_out = csv.writer(out)
+    csv_out = csv.writer(out, delimiter='\t')
     if write_header_bool:
         csv_out.writerow(row_header)
     for cost in costs:
