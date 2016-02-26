@@ -36,6 +36,9 @@
       document.getElementById('cost_field').value = ${cost};
       document.getElementById('difficulty_field').value = ${difficulty};
 
+      // don't let people type in the sentence field
+      document.getElementById('sentence_field').disabled = true;
+
       // don't let worker click buttons while previewing
       check_assignment_id();
     }
